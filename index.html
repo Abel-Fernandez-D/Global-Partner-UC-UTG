@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Search Quiz - Quality Education</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background-color: #007B5E;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    canvas {
+      display: block;
+      margin: 2rem auto;
+      border: 2px solid #007B5E;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    li {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #007B5E;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Word Search: SDG 4 - Quality Education</h1>
+    <p>Discover key terms and enhance your understanding!</p>
+  </header>
+  <div class="container">
+    <canvas id="wordSearch" width="600" height="600"></canvas>
+    <ul id="wordList"></ul>
+  </div>
+  <footer>
+    <p>Made with ❤️ for SDG 4 Awareness - Global-Partner-UC-UTG</p>
+  </footer>
+
+  <script>
+    const words = ["access", "skills", "technology", "education", "training", "jobs", "youth", "literacy", "teachers", "success"];
+    const size = 15;
+    const grid = Array.from({ length: size }, () => Array(size).fill(""));
+
+    const directions = [
+      [0, 1], [1, 0], [1, 1], [-1, 1] // Horizontal, Vertical, Diagonal
+    ];
+
+    function placeWord(word) {
+      for (let attempt = 0; attempt < 100; attempt++) {
+        const dir = directions[Math.floor(Math.random() * directions.length)];
+        const row = Math.floor(Math.random() * size);
+        const col = Math.floor(Math.random() * size);
+        let fits = true;
+        for (let i = 0; i < word.length; i++) {
+          const r = row + dir[0] * i;
+          const c = col + dir[1] * i;
+          if (r < 0 || r >= size || c < 0 || c >= size || (grid[r][c] !== "" && grid[r][c] !== word[i])) {
+            fits = false;
+            break;
+          }
+        }
+        if (fits) {
+          for (let i = 0; i < word.length; i++) {
+            const r = row + dir[0] * i;
+            const c = col + dir[1] * i;
+            grid[r][c] = word[i];
+          }
+          return true;
+        }
+      }
+      return false;
+    }
+
+    words.forEach(word => placeWord(word.toUpperCase()));
+
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        if (grid[r][c] === "") {
+          grid[r][c] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        }
+      }
+    }
+
+    const canvas = document.getElementById("wordSearch");
+    const ctx = canvas.getContext("2d");
+    const cellSize = canvas.width / size;
+    ctx.font = `${cellSize * 0.6}px Arial`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        ctx.fillText(grid[r][c], c * cellSize + cellSize / 2, r * cellSize + cellSize / 2);
+      }
+    }
+
+    const wordList = document.getElementById("wordList");
+    words.forEach(word => {
+      const li = document.createElement("li");
+      li.textContent = word;
+      wordList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
