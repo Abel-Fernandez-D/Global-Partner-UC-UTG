@@ -1,136 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Word Search Quiz - Quality Education</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f4f8;
-      color: #333;
-    }
-    header {
-      background-color: #007B5E;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    canvas {
-      display: block;
-      margin: 2rem auto;
-      border: 2px solid #007B5E;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-    }
-    li {
-      display: inline-block;
-      margin: 0.5rem 1rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #007B5E;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Skills for a Brighter Future - SDG 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        #game-section {
+            margin: 20px;
+        }
+        #word-search-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        #word-search-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+            gap: 2px;
+            background-color: #ddd;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s;
+        }
+        .cell:hover {
+            background-color: #f0f0f0;
+        }
+        .cell.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #word-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        #word-list li {
+            margin: 10px 0;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        #word-list li.found {
+            color: #4CAF50;
+            text-decoration: line-through;
+        }
+        .fact {
+            display: none;
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
+        .fact.visible {
+            display: block;
+        }
+        #resources, #call-to-action {
+            margin: 40px 20px;
+        }
+        #resources ul {
+            list-style: none;
+            padding: 0;
+        }
+        #resources li {
+            margin: 10px 0;
+        }
+        #resources a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        #resources a:hover {
+            text-decoration: underline;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Word Search: SDG 4 - Quality Education</h1>
-    <p>Discover key terms and enhance your understanding!</p>
-  </header>
-  <div class="container">
-    <canvas id="wordSearch" width="600" height="600"></canvas>
-    <ul id="wordList"></ul>
-  </div>
-  <footer>
-    <p>Made with ❤️ for SDG 4 Awareness - Global-Partner-UC-UTG</p>
-  </footer>
+    <header>
+        <h1>Financial Skills for a Brighter Future</h1>
+        <p>Explore <strong>SDG 4: Quality Education</strong> - Target 4.4: By 2030, substantially increase the number of youth and adults with relevant skills for financial success, employment, decent jobs, and entrepreneurship. Let’s empower young people in Peru and The Gambia with the tools for a sustainable future!</p>
+    </header>
 
-  <script>
-    const words = ["access", "skills", "technology", "education", "training", "jobs", "youth", "literacy", "teachers", "success"];
-    const size = 15;
-    const grid = Array.from({ length: size }, () => Array(size).fill(""));
+    <main>
+        <section id="game-section">
+            <h2>Word Search Challenge: Financial Education</h2>
+            <p>Find the 10 words related to financial success. Click on a word in the list below to reveal a fun fact or statistic after finding it in the grid!</p>
+            
+            <div id="word-search-container">
+                <div id="word-search-grid"></div>
+                <div id="word-list">
+                    <h3>Words to Find</h3>
+                    <ul>
+                        <li data-word="SAVINGS">SAVINGS <span class="fact">In Peru, only 29% of adults saved money formally in 2021 (World Bank).</span></li>
+                        <li data-word="TAX">TAX <span class="fact">In The Gambia, taxes fund public services like education, but compliance is low due to limited financial literacy.</span></li>
+                        <li data-word="ASSET">ASSET <span class="fact">Owning assets like land can help young Peruvians build wealth for the future.</span></li>
+                        <li data-word="LIABILITY">LIABILITY <span class="fact">Debts, or liabilities, can limit financial freedom if not managed well, a challenge for many in The Gambia.</span></li>
+                        <li data-word="BALANCE">BALANCE <span class="fact">A balanced financial statement helps businesses in Peru track their economic health.</span></li>
+                        <li data-word="SUPPLY">SUPPLY <span class="fact">In The Gambia, the supply of vocational training programs is growing to meet job market needs.</span></li>
+                        <li data-word="DEMAND">DEMAND <span class="fact">There’s a high demand for financial literacy programs among Peruvian youth (UNESCO).</span></li>
+                        <li data-word="INFLATION">INFLATION <span class="fact">Inflation in Peru reached 8.8% in 2022, affecting purchasing power (World Bank).</span></li>
+                        <li data-word="GUARANTEE">GUARANTEE <span class="fact">Consumer rights in The Gambia include guarantees to protect against faulty goods.</span></li>
+                        <li data-word="CLAIM">CLAIM <span class="fact">In Peru, knowing how to file a claim can help consumers protect their financial rights.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    const directions = [
-      [0, 1], [1, 0], [1, 1], [-1, 1] // Horizontal, Vertical, Diagonal
-    ];
+        <section id="resources">
+            <h2>Learn More About Financial Education</h2>
+            <p>Check out these resources to boost your financial skills:</p>
+            <ul>
+                <li><a href="https://www.financialeducation.org" target="_blank">Financial Education Org - Courses for Youth</a></li>
+                <li><a href="https://www.practicalmoneyskills.com" target="_blank">Practical Money Skills - Free Financial Literacy Lessons</a></li>
+                <li><a href="https://www.unesco.org/en/education" target="_blank">UNESCO Education Resources</a></li>
+                <li>Book Recommendation: <em>"Rich Dad Poor Dad" by Robert Kiyosaki</em> - Available in libraries in Peru and The Gambia.</li>
+            </ul>
+        </section>
 
-    function placeWord(word) {
-      for (let attempt = 0; attempt < 100; attempt++) {
-        const dir = directions[Math.floor(Math.random() * directions.length)];
-        const row = Math.floor(Math.random() * size);
-        const col = Math.floor(Math.random() * size);
-        let fits = true;
-        for (let i = 0; i < word.length; i++) {
-          const r = row + dir[0] * i;
-          const c = col + dir[1] * i;
-          if (r < 0 || r >= size || c < 0 || c >= size || (grid[r][c] !== "" && grid[r][c] !== word[i])) {
-            fits = false;
-            break;
-          }
+        <section id="call-to-action">
+            <h2>Join the Movement!</h2>
+            <p>Share this page with friends to spread awareness about financial education, or dive deeper into SDG 4 to help build a better future for all!</p>
+            <button onclick="sharePage()">Share Now</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created to support SDG 4 - Quality Education for All</p>
+    </footer>
+
+    <script>
+        const words = ["SAVINGS", "TAX", "ASSET", "LIABILITY", "BALANCE", "SUPPLY", "DEMAND", "INFLATION", "GUARANTEE", "CLAIM"];
+        const gridSize = 10;
+        let grid = Array(gridSize).fill().map(() => Array(gridSize).fill(""));
+        const gridElement = document.getElementById("word-search-grid");
+        let selectedCells = [];
+        let foundWords = new Set();
+
+        // Fill the grid with random letters and place words
+        function initializeGrid() {
+            // Place words
+            const directions = [[0, 1], [1, 0], [1, 1]]; // Right, Down, Diagonal
+            words.forEach(word => {
+                let placed = false;
+                while (!placed) {
+                    const dir = directions[Math.floor(Math.random() * directions.length)];
+                    const row = Math.floor(Math.random() * gridSize);
+                    const col = Math.floor(Math.random() * gridSize);
+                    if (canPlaceWord(word, row, col, dir)) {
+                        placeWord(word, row, col, dir);
+                        placed = true;
+                    }
+                }
+            });
+
+            // Fill remaining spaces with random letters
+            for (let i = 0; i < gridSize; i++) {
+                for (let j = 0; j < gridSize; j++) {
+                    if (!grid[i][j]) {
+                        grid[i][j] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                    }
+                }
+            }
+
+            // Render the grid
+            for (let i = 0; i < gridSize; i++) {
+                for (let j = 0; j < gridSize; j++) {
+                    const cell = document.createElement("div");
+                    cell.classList.add("cell");
+                    cell.textContent = grid[i][j];
+                    cell.dataset.row = i;
+                    cell.dataset.col = j;
+                    cell.addEventListener("click", handleCellClick);
+                    gridElement.appendChild(cell);
+                }
+            }
         }
-        if (fits) {
-          for (let i = 0; i < word.length; i++) {
-            const r = row + dir[0] * i;
-            const c = col + dir[1] * i;
-            grid[r][c] = word[i];
-          }
-          return true;
+
+        function canPlaceWord(word, row, col, dir) {
+            for (let i = 0; i < word.length; i++) {
+                const r = row + i * dir[0];
+                const c = col + i * dir[1];
+                if (r >= gridSize || c >= gridSize || (grid[r][c] && grid[r][c] !== word[i])) {
+                    return false;
+                }
+            }
+            return true;
         }
-      }
-      return false;
-    }
 
-    words.forEach(word => placeWord(word.toUpperCase()));
-
-    for (let r = 0; r < size; r++) {
-      for (let c = 0; c < size; c++) {
-        if (grid[r][c] === "") {
-          grid[r][c] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        function placeWord(word, row, col, dir) {
+            for (let i = 0; i < word.length; i++) {
+                const r = row + i * dir[0];
+                const c = col + i * dir[1];
+                grid[r][c] = word[i];
+            }
         }
-      }
-    }
 
-    const canvas = document.getElementById("wordSearch");
-    const ctx = canvas.getContext("2d");
-    const cellSize = canvas.width / size;
-    ctx.font = `${cellSize * 0.6}px Arial`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+        function handleCellClick(event) {
+            const cell = event.target;
+            const row = parseInt(cell.dataset.row);
+            const col = parseInt(cell.dataset.col);
 
-    for (let r = 0; r < size; r++) {
-      for (let c = 0; c < size; c++) {
-        ctx.fillText(grid[r][c], c * cellSize + cellSize / 2, r * cellSize + cellSize / 2);
-      }
-    }
+            selectedCells.push({ row, col });
+            cell.classList.add("selected");
 
-    const wordList = document.getElementById("wordList");
-    words.forEach(word => {
-      const li = document.createElement("li");
-      li.textContent = word;
-      wordList.appendChild(li);
-    });
-  </script>
+            const word = checkForWord();
+            if (word) {
+                foundWords.add(word);
+                updateWordList();
+                selectedCells = [];
+                document.querySelectorAll(".cell").forEach(cell => cell.classList.remove("selected"));
+            }
+        }
+
+        function checkForWord() {
+            if (selectedCells.length < 2) return null;
+
+            // Check if cells form a straight line (horizontal, vertical, or diagonal)
+            const rows = selectedCells.map(cell => cell.row);
+            const cols = selectedCells.map(cell => cell.col);
+            const isHorizontal = rows.every(r => r === rows[0]);
+            const isVertical = cols.every(c => c === cols[0]);
+            const isDiagonal = rows[1] - rows[0] === cols[1] - cols[0] && rows.every((r, i) => r - rows[0] === i * (rows[1] - rows[0]));
+
+            if (!(isHorizontal || isVertical || isDiagonal)) {
+                selectedCells = [];
+                document.querySelectorAll(".cell").forEach(cell => cell.classList.remove("selected"));
+                return null;
+            }
+
+            // Sort cells by position
+            selectedCells.sort((a, b) => isHorizontal ? a.col - b.col : a.row - b.row);
+            const word = selectedCells.map(cell => grid[cell.row][cell.col]).join("");
+            const reverseWord = selectedCells.map(cell => grid[cell.row][cell.col]).reverse().join("");
+
+            return words.includes(word) ? word : words.includes(reverseWord) ? reverseWord : null;
+        }
+
+        function updateWordList() {
+            document.querySelectorAll("#word-list li").forEach(item => {
+                const word = item.dataset.word;
+                if (foundWords.has(word)) {
+                    item.classList.add("found");
+                    const fact = item.querySelector(".fact");
+                    fact.classList.add("visible");
+                }
+            });
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Financial Skills for a Brighter Future",
+                    text: "Learn about financial education and SDG 4 with this fun word search game!",
+                    url: window.location.href
+                });
+            } else {
+                alert("Sharing is not supported on this device. Copy the URL to share!");
+            }
+        }
+
+        // Initialize the game
+        initializeGrid();
+    </script>
 </body>
 </html>
