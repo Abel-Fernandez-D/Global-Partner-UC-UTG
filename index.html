@@ -13,30 +13,49 @@
             color: #333;
             text-align: center;
         }
-        header {
-            background-color: #4CAF50;
+        .header-top {
+            background-color: #6802c1;
             color: white;
-            padding: 20px;
+            padding: 20px 15px;
         }
-        h1 {
-            margin: 0;
+        .header-top img {
+            max-width: 100px;
+        }
+        .header-top h1 {
+            margin: 10px 0;
             font-size: 2.5em;
         }
-        h2 {
-            color: #4CAF50;
+        .header-top p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: auto;
         }
-        p {
+        .header-bottom {
+            background-color: #7c19e0;
+            color: white;
+            padding: 20px 15px;
+        }
+        .header-bottom p {
             font-size: 1.1em;
-            line-height: 1.5;
+            max-width: 700px;
+            margin: auto;
         }
         #game-section {
-            margin: 20px;
+            margin: 40px 20px;
+        }
+        #game-section h2 {
+            color: #6802c1;
+            font-size: 2em;
+        }
+        #game-section p {
+            font-size: 1.1em;
         }
         #word-search-container {
             display: flex;
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
         #word-search-grid {
             display: grid;
@@ -65,27 +84,35 @@
             background-color: #4CAF50;
             color: white;
         }
+        #word-list {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        #word-list h3 {
+            color: #6802c1;
+            margin-bottom: 10px;
+        }
         #word-list ul {
             list-style: none;
             padding: 0;
         }
         #word-list li {
-            margin: 10px 0;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            margin-bottom: 10px;
             cursor: pointer;
-        }
-        #word-list li.found {
-            color: #4CAF50;
-            text-decoration: line-through;
         }
         .fact {
             display: none;
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #555;
-            margin-top: 5px;
         }
         .fact.visible {
             display: block;
+        }
+        .found {
+            color: #4CAF50;
+            text-decoration: line-through;
         }
         #resources, #call-to-action {
             margin: 40px 20px;
@@ -127,31 +154,37 @@
     </style>
 </head>
 <body>
-    <header>
+    <div class="header-top">
+        <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2020/05/SDG_website_E_v2_100px.png" alt="Sustainable Development Goals">
         <h1>Financial Skills for a Brighter Future</h1>
-        <p>Explore <strong>SDG 4: Quality Education</strong> - Target 4.4: By 2030, substantially increase the number of youth and adults with relevant skills for financial success, employment, decent jobs, and entrepreneurship. Let’s empower young people in Peru and The Gambia with the tools for a sustainable future!</p>
-    </header>
+        <p>Everyday decisions shape your financial future. But are you ready to make the smart ones?</p>
+    </div>
+
+    <div class="header-bottom">
+        <p>In Peru and The Gambia, many young people still lack access to practical financial knowledge. That’s why we created an interactive word search that turns key concepts into an engaging game—making learning simple, fun, and relevant.</p>
+        <p><strong>Let’s empower young people in Peru and The Gambia with the tools for a sustainable future!</strong></p>
+    </div>
 
     <main>
         <section id="game-section">
             <h2>Word Search Challenge: Financial Education</h2>
-            <p>Find the 10 words related to financial success. Click on a word in the list below to reveal a fun fact or statistic after finding it in the grid!</p>
-            
+            <p>Click on a word in the list below to reveal a fun fact or statistic after finding it in the grid!</p>
+
             <div id="word-search-container">
                 <div id="word-search-grid"></div>
                 <div id="word-list">
                     <h3>Words to Find</h3>
                     <ul>
-                        <li data-word="SAVINGS">SAVINGS <span class="fact">In Peru, only 29% of adults saved money formally in 2021 (World Bank).</span></li>
-                        <li data-word="TAX">TAX <span class="fact">In The Gambia, taxes fund public services like education, but compliance is low due to limited financial literacy.</span></li>
-                        <li data-word="ASSET">ASSET <span class="fact">Owning assets like land can help young Peruvians build wealth for the future.</span></li>
-                        <li data-word="LIABILITY">LIABILITY <span class="fact">Debts, or liabilities, can limit financial freedom if not managed well, a challenge for many in The Gambia.</span></li>
-                        <li data-word="BALANCE">BALANCE <span class="fact">A balanced financial statement helps businesses in Peru track their economic health.</span></li>
-                        <li data-word="SUPPLY">SUPPLY <span class="fact">In The Gambia, the supply of vocational training programs is growing to meet job market needs.</span></li>
-                        <li data-word="DEMAND">DEMAND <span class="fact">There’s a high demand for financial literacy programs among Peruvian youth (UNESCO).</span></li>
-                        <li data-word="INFLATION">INFLATION <span class="fact">Inflation in Peru reached 8.8% in 2022, affecting purchasing power (World Bank).</span></li>
-                        <li data-word="GUARANTEE">GUARANTEE <span class="fact">Consumer rights in The Gambia include guarantees to protect against faulty goods.</span></li>
-                        <li data-word="CLAIM">CLAIM <span class="fact">In Peru, knowing how to file a claim can help consumers protect their financial rights.</span></li>
+                        <li data-word="SAVING">Saving <span class="fact">Saving is the portion of income not spent on immediate consumption, set aside for future use. It helps individuals prepare for emergencies, achieve financial goals, or invest.<br><strong>Examples:</strong> In Peru, young people save using yape or cajas municipales. In The Gambia, osusu groups help youth save for school or business.</span></li>
+                        <li data-word="TAX">Tax <span class="fact">A tax is a compulsory financial charge imposed by a government to fund public services.<br><strong>Examples:</strong> Peru uses IGV; in The Gambia, VAT applies to market goods.</span></li>
+                        <li data-word="ASSET">Asset <span class="fact">An asset is anything valuable that can be used to generate income or hold value over time.<br><strong>Examples:</strong> A laptop in Peru or a goat in The Gambia.</span></li>
+                        <li data-word="LIABILITY">Liability <span class="fact">A liability is a debt or obligation owed to others.<br><strong>Examples:</strong> Student loans in Peru; microfinance loans in The Gambia.</span></li>
+                        <li data-word="BALANCE">Balance <span class="fact">A balance sheet shows what is owned, owed, and the net worth.<br><strong>Examples:</strong> Fondep funding in Peru or youth cooperatives in The Gambia.</span></li>
+                        <li data-word="SUPPLY">Supply <span class="fact">Supply refers to the quantity of goods producers are willing to offer.<br><strong>Examples:</strong> Avocado season in Peru; fish market in The Gambia.</span></li>
+                        <li data-word="DEMAND">Demand <span class="fact">Demand is the quantity consumers are willing to buy.<br><strong>Examples:</strong> Mobile data in Peru; school uniforms in The Gambia.</span></li>
+                        <li data-word="INFLATION">Inflation <span class="fact">Inflation is the rise in prices over time, reducing purchasing power.<br><strong>Examples:</strong> Price spikes in Peru and food affordability in The Gambia.</span></li>
+                        <li data-word="WARRANTY">Warranty <span class="fact">A warranty ensures product quality and allows returns or repairs.<br><strong>Examples:</strong> Phone purchases in Peru; electronics in The Gambia.</span></li>
+                        <li data-word="COMPLAINT">Complaint <span class="fact">A complaint is a formal expression of dissatisfaction.<br><strong>Examples:</strong> Libro de Reclamaciones in Peru; market claims in The Gambia.</span></li>
                     </ul>
                 </div>
             </div>
@@ -180,7 +213,7 @@
     </footer>
 
     <script>
-        const words = ["SAVINGS", "TAX", "ASSET", "LIABILITY", "BALANCE", "SUPPLY", "DEMAND", "INFLATION", "GUARANTEE", "CLAIM"];
+        const words = ["SAVING", "TAX", "ASSET", "LIABILITY", "BALANCE", "SUPPLY", "DEMAND", "INFLATION", "WARRANTY", "COMPLAINT"];
         const gridSize = 10;
         let grid = Array(gridSize).fill().map(() => Array(gridSize).fill(""));
         const gridElement = document.getElementById("word-search-grid");
