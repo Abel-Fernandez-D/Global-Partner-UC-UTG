@@ -3,348 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Skills for a Brighter Future - SDG 4</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            text-align: center;
-        }
-        .header-top {
-            background-color: #6802c1;
-            color: white;
-            padding: 20px 15px;
-        }
-        .header-top img {
-            max-width: 100px;
-        }
-        .header-top h1 {
-            margin: 10px 0;
-            font-size: 2.5em;
-        }
-        .header-top p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: auto;
-        }
-        .header-bottom {
-            background-color: #7c19e0;
-            color: white;
-            padding: 20px 15px;
-        }
-        .header-bottom p {
-            font-size: 1.1em;
-            max-width: 700px;
-            margin: auto;
-        }
-        #game-section {
-            margin: 40px 20px;
-        }
-        #game-section h2 {
-            color: #6802c1;
-            font-size: 2em;
-        }
-        #game-section p {
-            font-size: 1.1em;
-        }
-        #word-search-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        #word-search-grid {
-            display: grid;
-            grid-template-columns: repeat(10, 40px);
-            gap: 2px;
-            background-color: #ddd;
-            padding: 10px;
-            border-radius: 8px;
-        }
-        .cell {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            transition: background-color 0.3s;
-        }
-        .cell:hover {
-            background-color: #f0f0f0;
-        }
-        .cell.selected {
-            background-color: #4CAF50;
-            color: white;
-        }
-        #word-list {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        #word-list h3 {
-            color: #6802c1;
-            margin-bottom: 10px;
-        }
-        #word-list ul {
-            list-style: none;
-            padding: 0;
-        }
-        #word-list li {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-        .fact {
-            display: none;
-            font-size: 0.95em;
-            color: #555;
-        }
-        .fact.visible {
-            display: block;
-        }
-        .found {
-            color: #4CAF50;
-            text-decoration: line-through;
-        }
-        #resources, #call-to-action {
-            margin: 40px 20px;
-        }
-        #resources ul {
-            list-style: none;
-            padding: 0;
-        }
-        #resources li {
-            margin: 10px 0;
-        }
-        #resources a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-        #resources a:hover {
-            text-decoration: underline;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>GPE:Peru & The Gambia - SDG 4.4</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header-top">
-        <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2020/05/SDG_website_E_v2_100px.png" alt="Sustainable Development Goals">
-        <h1>Financial Skills for a Brighter Future</h1>
-        <p>Everyday decisions shape your financial future. But are you ready to make the smart ones?</p>
-    </div>
+    <header>
+        <div class="header-top">
+            <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2020/05/SDG_website_E_v2_100px.png" alt="Sustainable Development Goals">
+            <br><br>
+            <h3><strong>SDG 4: Quality Education</strong> - Target 4.4: Increase the number of people with relevant skills for financial success.</h3>
+        </div>
 
-    <div class="header-bottom">
-        <p>In Peru and The Gambia, many young people still lack access to practical financial knowledge. That’s why we created an interactive word search that turns key concepts into an engaging game—making learning simple, fun, and relevant.</p>
-        <p><strong>Let’s empower young people in Peru and The Gambia with the tools for a sustainable future!</strong></p>
-    </div>
+        <div class="header-middle">
+            <h1>Financial Skills for a Brighter Future</h1>
+            <p>Everyday decisions shape your financial future. But are you ready to make the smart ones?</p>
+        </div>
+
+        <div class="header-bottom">
+            <p>
+                In Peru and The Gambia, many young people still lack access to practical financial knowledge.
+                That’s why we created an interactive word search that turns key concepts into an engaging game—making learning simple, fun, and relevant.
+                <br><br>
+                <strong>Let’s empower young people in Peru and The Gambia with the tools for a sustainable future!</strong>
+            </p>
+        </div>
+    </header>
 
     <main>
         <section id="game-section">
             <h2>Word Search Challenge: Financial Education</h2>
-            <p>Click on a word in the list below to reveal a fun fact or statistic after finding it in the grid!</p>
-
+            <p>Find the 10 words related to financial success.</p>
+            <p>Click on a word in the list below to reveal a fun fact after finding it in the grid!</p>
+            
             <div id="word-search-container">
                 <div id="word-search-grid"></div>
-                <div id="word-list">
-                    <h3>Words to Find</h3>
-                    <ul>
-                        <li data-word="SAVING">Saving <span class="fact">Saving is the portion of income not spent on immediate consumption, set aside for future use. It helps individuals prepare for emergencies, achieve financial goals, or invest.<br><strong>Examples:</strong> In Peru, young people save using yape or cajas municipales. In The Gambia, osusu groups help youth save for school or business.</span></li>
-                        <li data-word="TAX">Tax <span class="fact">A tax is a compulsory financial charge imposed by a government to fund public services.<br><strong>Examples:</strong> Peru uses IGV; in The Gambia, VAT applies to market goods.</span></li>
-                        <li data-word="ASSET">Asset <span class="fact">An asset is anything valuable that can be used to generate income or hold value over time.<br><strong>Examples:</strong> A laptop in Peru or a goat in The Gambia.</span></li>
-                        <li data-word="LIABILITY">Liability <span class="fact">A liability is a debt or obligation owed to others.<br><strong>Examples:</strong> Student loans in Peru; microfinance loans in The Gambia.</span></li>
-                        <li data-word="BALANCE">Balance <span class="fact">A balance sheet shows what is owned, owed, and the net worth.<br><strong>Examples:</strong> Fondep funding in Peru or youth cooperatives in The Gambia.</span></li>
-                        <li data-word="SUPPLY">Supply <span class="fact">Supply refers to the quantity of goods producers are willing to offer.<br><strong>Examples:</strong> Avocado season in Peru; fish market in The Gambia.</span></li>
-                        <li data-word="DEMAND">Demand <span class="fact">Demand is the quantity consumers are willing to buy.<br><strong>Examples:</strong> Mobile data in Peru; school uniforms in The Gambia.</span></li>
-                        <li data-word="INFLATION">Inflation <span class="fact">Inflation is the rise in prices over time, reducing purchasing power.<br><strong>Examples:</strong> Price spikes in Peru and food affordability in The Gambia.</span></li>
-                        <li data-word="WARRANTY">Warranty <span class="fact">A warranty ensures product quality and allows returns or repairs.<br><strong>Examples:</strong> Phone purchases in Peru; electronics in The Gambia.</span></li>
-                        <li data-word="COMPLAINT">Complaint <span class="fact">A complaint is a formal expression of dissatisfaction.<br><strong>Examples:</strong> Libro de Reclamaciones in Peru; market claims in The Gambia.</span></li>
-                    </ul>
-                </div>
             </div>
+
+            <div id="word-list">
+                <h4>Words to Find</h4>
+                <ul>
+                    <li data-word="SAVING">
+                        <span class="keyword">Saving</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>Saving is the part of a person's income that is not spent immediately, but instead kept for future needs. It helps people face unexpected expenses, reach personal goals, or build financial security over time.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, a student may set aside a portion of their weekly allowance to buy school materials or save for a larger goal, such as continuing education.</em></li>
+                                <li><em>In The Gambia, youth often create small savings groups with friends or neighbors to prepare for school expenses or future opportunities.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="TAX">
+                        <span class="keyword">Tax</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>A tax is a mandatory payment made to the government on income, purchases, or property. These funds are used to support public services such as education, healthcare, roads, and security.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, a young entrepreneur selling handmade crafts learns that once they earn above a certain amount, they must register and pay taxes on their income.</em></li>
+                                <li><em>In The Gambia, understanding how sales taxes work helps young vendors price their goods correctly and stay compliant with local rules.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="ASSET">
+                        <span class="keyword">Asset</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>An asset is anything of value that a person or business owns, which can help generate income or be sold in the future. Assets can be physical (like land) or non-physical (like skills).</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, owning a bicycle used for deliveries or a set of tools for carpentry can be considered useful personal assets.</em></li>
+                                <li><em>In The Gambia, a family may count a small piece of farmland or livestock as part of their valuable resources.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="LIABILITY">
+                        <span class="keyword">Liability</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>A liability is something that a person or business owes—like a loan, unpaid bill, or financial obligation. Managing liabilities responsibly is key to financial health.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, a university student who receives a loan to pay for tuition must repay it over time, which becomes a personal liability.</em></li>
+                                <li><em>In The Gambia, a young farmer who borrows seeds and tools for the planting season is responsible for repaying that debt after harvest.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="BALANCE">
+                        <span class="keyword">Balance</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>A balance sheet is a financial summary showing what is owned (assets), what is owed (liabilities), and the difference between them (net worth), usually at a given time.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, someone starting a small home business might use a simple balance sheet to track progress and organize their budget.</em></li>
+                                <li><em>In The Gambia, local youth groups managing community projects often keep records to understand how much they have and what they owe.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="SUPPLY">
+                        <span class="keyword">Supply</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>Supply refers to the amount of a product or service that sellers are willing and able to provide at different price levels.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, during harvest time, an increase in vegetable supply at local markets often causes prices to drop.</em></li>
+                                <li><em>In The Gambia, when fishing is good, more fish become available, and vendors adjust prices based on the quantity.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="DEMAND">
+                        <span class="keyword">Demand</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>Demand is the quantity of a good or service that consumers are willing and able to buy at different prices over a period of time.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, demand for internet access increases among students during exam periods.</em></li>
+                                <li><em>In The Gambia, the start of the school year brings higher demand for notebooks, shoes, and uniforms.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="INFLATION">
+                        <span class="keyword">Inflation</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>Inflation is when the prices of goods and services rise over time, which reduces the purchasing power of money.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, families may need to adjust their grocery shopping when prices for basic food items rise significantly.</em></li>
+                                <li><em>In The Gambia, inflation makes everyday items like cooking oil more expensive, affecting how families manage their budgets.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="WARRANTY">
+                        <span class="keyword">Warranty</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>A warranty is a promise from a seller or manufacturer that a product will work as expected for a period of time. If it breaks early, it can be repaired or replaced at no cost.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, buying electronics often includes a warranty that allows the customer to return or fix the item if it fails.</em></li>
+                                <li><em>In The Gambia, youth are learning to ask about warranties when buying important items like radios or appliances.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+            
+                    <li data-word="COMPLAINT">
+                        <span class="keyword">Complaint</span>
+                        <div class="fact">
+                            <strong>Definition:</strong>
+                            <p>A complaint is a formal statement made by a consumer when they are unhappy with a product or service, asking for a refund, repair, or better treatment.</p>
+                            <strong>Example:</strong>
+                            <ul>
+                                <li><em>In Peru, young consumers are encouraged to speak up when they feel they have been unfairly charged or treated.</em></li>
+                                <li><em>In The Gambia, community meetings and local organizations provide ways for youth to express dissatisfaction about a service or product.</em></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>                     
         </section>
 
         <section id="resources">
             <h2>Learn More About Financial Education</h2>
             <p>Check out these resources to boost your financial skills:</p>
             <ul>
-                <li><a href="https://www.financialeducation.org" target="_blank">Financial Education Org - Courses for Youth</a></li>
+                <li><a href="https://www.edx.org/learn/personal-finance/indiana-university-introduction-to-personal-financial-planning" target="_blank">Introduction to Personal Financial Planning - Courses for Youth</a></li>
+                <li><a href="https://www.edx.org/learn/business-management/university-of-cambridge-researcher-to-innovator-and-entrepreneur" target="_blank">Researcher to Innovator and Entrepreneur - Courses for Youth</a></li>
                 <li><a href="https://www.practicalmoneyskills.com" target="_blank">Practical Money Skills - Free Financial Literacy Lessons</a></li>
                 <li><a href="https://www.unesco.org/en/education" target="_blank">UNESCO Education Resources</a></li>
-                <li>Book Recommendation: <em>"Rich Dad Poor Dad" by Robert Kiyosaki</em> - Available in libraries in Peru and The Gambia.</li>
             </ul>
         </section>
 
         <section id="call-to-action">
-            <h2>Join the Movement!</h2>
+            <h4>Join the Movement!</h4>
             <p>Share this page with friends to spread awareness about financial education, or dive deeper into SDG 4 to help build a better future for all!</p>
             <button onclick="sharePage()">Share Now</button>
         </section>
     </main>
 
     <footer>
-        <p>Created to support SDG 4 - Quality Education for All</p>
+        <p>Created by <strong>Abel Fernandez</strong> and <strong>Dodou Jawara</strong> in support of SDG 4 - Quality Education for All</p>
     </footer>
 
-    <script>
-        const words = ["SAVING", "TAX", "ASSET", "LIABILITY", "BALANCE", "SUPPLY", "DEMAND", "INFLATION", "WARRANTY", "COMPLAINT"];
-        const gridSize = 10;
-        let grid = Array(gridSize).fill().map(() => Array(gridSize).fill(""));
-        const gridElement = document.getElementById("word-search-grid");
-        let selectedCells = [];
-        let foundWords = new Set();
-
-        // Fill the grid with random letters and place words
-        function initializeGrid() {
-            // Place words
-            const directions = [[0, 1], [1, 0], [1, 1]]; // Right, Down, Diagonal
-            words.forEach(word => {
-                let placed = false;
-                while (!placed) {
-                    const dir = directions[Math.floor(Math.random() * directions.length)];
-                    const row = Math.floor(Math.random() * gridSize);
-                    const col = Math.floor(Math.random() * gridSize);
-                    if (canPlaceWord(word, row, col, dir)) {
-                        placeWord(word, row, col, dir);
-                        placed = true;
-                    }
-                }
-            });
-
-            // Fill remaining spaces with random letters
-            for (let i = 0; i < gridSize; i++) {
-                for (let j = 0; j < gridSize; j++) {
-                    if (!grid[i][j]) {
-                        grid[i][j] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-                    }
-                }
-            }
-
-            // Render the grid
-            for (let i = 0; i < gridSize; i++) {
-                for (let j = 0; j < gridSize; j++) {
-                    const cell = document.createElement("div");
-                    cell.classList.add("cell");
-                    cell.textContent = grid[i][j];
-                    cell.dataset.row = i;
-                    cell.dataset.col = j;
-                    cell.addEventListener("click", handleCellClick);
-                    gridElement.appendChild(cell);
-                }
-            }
-        }
-
-        function canPlaceWord(word, row, col, dir) {
-            for (let i = 0; i < word.length; i++) {
-                const r = row + i * dir[0];
-                const c = col + i * dir[1];
-                if (r >= gridSize || c >= gridSize || (grid[r][c] && grid[r][c] !== word[i])) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        function placeWord(word, row, col, dir) {
-            for (let i = 0; i < word.length; i++) {
-                const r = row + i * dir[0];
-                const c = col + i * dir[1];
-                grid[r][c] = word[i];
-            }
-        }
-
-        function handleCellClick(event) {
-            const cell = event.target;
-            const row = parseInt(cell.dataset.row);
-            const col = parseInt(cell.dataset.col);
-
-            selectedCells.push({ row, col });
-            cell.classList.add("selected");
-
-            const word = checkForWord();
-            if (word) {
-                foundWords.add(word);
-                updateWordList();
-                selectedCells = [];
-                document.querySelectorAll(".cell").forEach(cell => cell.classList.remove("selected"));
-            }
-        }
-
-        function checkForWord() {
-            if (selectedCells.length < 2) return null;
-
-            // Check if cells form a straight line (horizontal, vertical, or diagonal)
-            const rows = selectedCells.map(cell => cell.row);
-            const cols = selectedCells.map(cell => cell.col);
-            const isHorizontal = rows.every(r => r === rows[0]);
-            const isVertical = cols.every(c => c === cols[0]);
-            const isDiagonal = rows[1] - rows[0] === cols[1] - cols[0] && rows.every((r, i) => r - rows[0] === i * (rows[1] - rows[0]));
-
-            if (!(isHorizontal || isVertical || isDiagonal)) {
-                selectedCells = [];
-                document.querySelectorAll(".cell").forEach(cell => cell.classList.remove("selected"));
-                return null;
-            }
-
-            // Sort cells by position
-            selectedCells.sort((a, b) => isHorizontal ? a.col - b.col : a.row - b.row);
-            const word = selectedCells.map(cell => grid[cell.row][cell.col]).join("");
-            const reverseWord = selectedCells.map(cell => grid[cell.row][cell.col]).reverse().join("");
-
-            return words.includes(word) ? word : words.includes(reverseWord) ? reverseWord : null;
-        }
-
-        function updateWordList() {
-            document.querySelectorAll("#word-list li").forEach(item => {
-                const word = item.dataset.word;
-                if (foundWords.has(word)) {
-                    item.classList.add("found");
-                    const fact = item.querySelector(".fact");
-                    fact.classList.add("visible");
-                }
-            });
-        }
-
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: "Financial Skills for a Brighter Future",
-                    text: "Learn about financial education and SDG 4 with this fun word search game!",
-                    url: window.location.href
-                });
-            } else {
-                alert("Sharing is not supported on this device. Copy the URL to share!");
-            }
-        }
-
-        // Initialize the game
-        initializeGrid();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
